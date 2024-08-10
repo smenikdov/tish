@@ -16,7 +16,7 @@ const ProductPrice = (props: ProductPriceProps) => {
         <div {...otherProps}>
             {offer ? (
                 <Flex className={styles.container} align="center">
-                    <Text className={styles.price} color="primary" bold>
+                    <Text className={styles.price}>
                         {formatNumber(
                             getProductPriceWithDiscount({ price, discount: offer.discount })
                         )}
@@ -31,9 +31,7 @@ const ProductPrice = (props: ProductPriceProps) => {
                 </Flex>
             ) : (
                 <Flex className={styles.container} align="center">
-                    <Text className={styles.price} color="primary" bold>
-                        {formatNumber(price)}₽
-                    </Text>
+                    <Text className={styles.price}>{formatNumber(price)}₽</Text>
                 </Flex>
             )}
         </div>

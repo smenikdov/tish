@@ -9,8 +9,6 @@ import { useAppDispatch } from '@/hooks/useStore';
 import type { UserRole } from '@prisma/client';
 
 import { userInitialize as userInitializeServerAction } from '@/features/user/routes';
-import { basketGetAllItems } from '@/features/basket/routes';
-import { basketSetItems as basketSetItemsAction } from '@/features/basket/store';
 
 interface InitialDataContext {
     userRole: UserRole;
@@ -37,18 +35,8 @@ export const InitialDataProvider = ({ children }: { children: React.ReactNode })
         // TODO
     };
 
-    const basketInitialize = async () => {
-        const response = await basketGetAllItems({});
-        if (!response.isSuccess) {
-            notifyError(response.message);
-            return;
-        }
-        dispatch(basketSetItemsAction(response.data));
-    };
-
     useOnMount(() => {
-        userInitialize();
-        basketInitialize();
+        // userInitialize();
     });
 
     return (

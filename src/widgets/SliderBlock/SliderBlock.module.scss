@@ -1,0 +1,45 @@
+@import '@/styles/abstracts';
+
+.container {
+    height: 100vh;
+}
+
+.slide {
+}
+
+.slideActive {
+    .image,
+    .title,
+    .description {
+        opacity: 1;
+    }
+}
+
+.image,
+.title,
+.description {
+    opacity: 0;
+    transition: 500ms;
+    will-change: opacity;
+}
+
+.title {
+    position: absolute;
+    top: 60px;
+    left: 75px;
+    color: $white;
+    font-size: 70px;
+    width: 50%;
+}
+
+.description {
+    color: $white;
+    position: absolute;
+    top: 70px;
+    left: calc(50% + 75px);
+    width: 50%;
+}
+
+.image {
+    z-index: -1;
+}

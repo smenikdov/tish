@@ -13,24 +13,22 @@ import { MdOutlineAccountCircle } from 'react-icons/md';
 
 import HeaderLogo from './HeaderLogo';
 
-import BasketButton from '@/features/basket/components/BasketButton';
-
 const links = [
     {
-        label: 'Каталог',
-        href: '/product',
+        label: 'Услуги',
+        href: '#product',
+    },
+    {
+        label: 'Отзывы',
+        href: '#review',
     },
     {
         label: 'FAQ',
-        href: '/faq',
+        href: '#faq',
     },
     {
         label: 'Контакты',
-        href: '/contacts',
-    },
-    {
-        label: 'Скидка 15%',
-        href: '/discount',
+        href: '#contacts',
     },
 ];
 
@@ -41,14 +39,8 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <Container>
-                <Row className={styles.container} align="center">
-                    <Col lg={2}>
-                        <Link href="/">
-                            <HeaderLogo className={styles.logo} />
-                        </Link>
-                    </Col>
-
-                    <Col lg={7}>
+                <Flex className={styles.container} align="center" justify="space-between">
+                    <div>
                         <Flex>
                             {links.map((link) => (
                                 <Link key={link.href} className={styles.link} href={link.href}>
@@ -56,21 +48,20 @@ const Header = () => {
                                 </Link>
                             ))}
                         </Flex>
-                    </Col>
+                    </div>
 
-                    <Col lg={3}>
+                    <div className={styles.logo}>
+                        <Link href="/">
+                            <HeaderLogo />
+                        </Link>
+                    </div>
+
+                    <div>
                         <Flex justify="flex-end">
-                            <Button
-                                href={accessToken ? '/my' : '/login'}
-                                shape="circle"
-                                variant="text"
-                                className={styles.loginButton}
-                                icon={<MdOutlineAccountCircle />}
-                            />
-                            <BasketButton className={styles.loginBasket} />
+                            <Button className={styles.loginButton}>Записаться</Button>
                         </Flex>
-                    </Col>
-                </Row>
+                    </div>
+                </Flex>
             </Container>
         </header>
     );

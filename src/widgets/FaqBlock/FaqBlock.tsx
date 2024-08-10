@@ -5,6 +5,8 @@ import Title from '@/components/typography/Title';
 import Paragraph from '@/components/typography/Paragraph';
 import Container from '@/components/grid/Container';
 import Flex from '@/components/Flex';
+import Row from '@/components/grid/Row';
+import Col from '@/components/grid/Col';
 import Accordion from '@/components/Accordion';
 import type { FaqBlockProps } from './FaqBlock.types';
 
@@ -20,33 +22,20 @@ const FaqBlock = (props: FaqBlockProps) => {
 
     return (
         <Container>
-            <div className={mergedCls} {...othersProps}>
-                {before && (
-                    <Flex className={styles.before} justify="center">
-                        {before}
-                    </Flex>
-                )}
+            <Row className={mergedCls} {...othersProps}>
+                <Col lg={4}>
+                    {' '}
+                    {title && (
+                        <Title className={styles.title} level={2}>
+                            {title}
+                        </Title>
+                    )}
+                </Col>
 
-                {title && (
-                    <Title className={styles.title} align="center" level={2}>
-                        {title}
-                    </Title>
-                )}
-
-                {content && (
-                    <Paragraph className={styles.content} align="center">
-                        {content}
-                    </Paragraph>
-                )}
-
-                <Accordion className={styles.accordion} items={accordionItems} />
-
-                {after && (
-                    <Flex className={styles.after} justify="center">
-                        {after}
-                    </Flex>
-                )}
-            </div>
+                <Col lg={8}>
+                    <Accordion className={styles.accordion} items={accordionItems} />
+                </Col>
+            </Row>
         </Container>
     );
 };

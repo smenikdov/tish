@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Flex from '@/components/Flex';
 import Text from '@/components/typography/Text';
@@ -22,43 +25,47 @@ import ProductPrice from '../ProductPrice';
 import type { ProductListProps } from './ProductList.types';
 
 const ProductList = (props: ProductListProps) => {
-    const { products } = props;
+    const { products, title } = props;
 
     return (
         <Container>
-            <Row>
+            <Flex justify="space-between" className="mb-md">
+                {title && <Title level={2}>{title}</Title>}
+                <div>1234</div>
+            </Flex>
+            <Swiper slidesPerView={4} spaceBetween={0}>
                 {products.map((product) => (
-                    <Col key={product.id} sm={6} md={4} lg={3}>
-                        <Link href={`/product/${product.id}`}>
-                            <div className={styles.product}>
-                                <Chip className={styles.chip}>Распродажа</Chip>
-                                <div className={styles.imageWrap}>
-                                    <Image
-                                        className={styles.image}
-                                        src={product.images[0]}
-                                        alt={product.name}
-                                        fill
-                                    />
-                                </div>
+                    <SwiperSlide key={product.id}>
+                        <div className={styles.product}>
+                            <div className={styles.chips}>
+                                {product.chips.map((chip, chipIndex) => (
+                                    <Chip key={chipIndex} className={styles.chip}>
+                                        {chip}
+                                    </Chip>
+                                ))}
+                            </div>
+                            <div className={styles.imageWrap}>
+                                <Image
+                                    className={styles.image}
+                                    src={product.images[0]}
+                                    alt={product.name}
+                                    fill
+                                />
+                            </div>
+                            <Flex className={styles.bottom} justify="space-between" align="center">
+                                <Title level={3} className={styles.name} family="plex-sans">
+                                    {product.name}
+                                </Title>
                                 <ProductPrice
                                     className={styles.price}
                                     price={product.price}
                                     offer={product.offer}
                                 />
-                                <Flex justify="space-between" align="center">
-                                    <Title level={3} className={styles.name} family="plex-sans">
-                                        {product.name}
-                                    </Title>
-                                    {/* <div>
-                                        <Icon icon={<MdStarRate />} />
-                                        <Text>{product.rating}</Text>
-                                    </div> */}
-                                </Flex>
-                            </div>
-                        </Link>
-                    </Col>
+                            </Flex>
+                        </div>
+                    </SwiperSlide>
                 ))}
-            </Row>
+            </Swiper>
         </Container>
     );
 };

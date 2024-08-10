@@ -1,9 +1,12 @@
+html {
+    font-size: 14px;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: #f3f3f3;
     color: $dark;
-    font-size: 18px;
     line-height: 1.5em;
 }
 
@@ -24,7 +27,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     line-height: 1.25em;
     font-weight: 600;
 }
@@ -40,3 +43,5 @@ h5 {
     line-height: 1.25em;
     font-weight: 500;
 }
+
+@import 'swiper/css';
