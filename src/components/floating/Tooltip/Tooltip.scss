@@ -1,0 +1,21 @@
+@import '@/styles/abstracts';
+
+.tooltip {
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 12px;
+    margin: auto;
+    width: fit-content;
+
+    &-container {
+        position: relative;
+    }
+
+    &-primary {}
+    &-secondary {}
+    &-success {}
+    &-warning {}
+    &-danger {}
+}

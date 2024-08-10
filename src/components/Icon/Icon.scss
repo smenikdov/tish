@@ -1,0 +1,25 @@
+@import '@/styles/abstracts';
+
+.icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    height: 1.5em;
+
+    &-primary {
+        color: $primary;
+    }
+    &-secondary {
+        color: $secondary;
+    }
+    &-success {
+        color: $success;
+    }
+    &-warning {
+        color: $warning;
+    }
+    &-danger {
+        color: $danger;
+    }
+}

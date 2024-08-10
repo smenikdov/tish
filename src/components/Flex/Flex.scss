@@ -1,0 +1,43 @@
+@import '@/styles/abstracts';
+
+.flex {
+    display: flex;
+
+    $flex-direction: row, row-reverse, column, column-reverse;
+    $justify-content: flex-start, flex-end, center, space-around, space-between, space-evenly;
+    $align-items: flex-start, flex-end, center, stretch, baseline;
+    $flex-wrap: nowrap, wrap, wrap-reverse;
+
+    @mixin apply-styles($name, $prop, $values) {
+        @each $value in $values {
+            &-#{$name}-#{$value} {
+                #{$prop}: #{$value};
+            }
+        }
+    }
+
+    @each $sizeName, $sizeValue in $sizes {
+        &-gap-x-#{$sizeName} {
+            margin-right: calc($sizeValue * -0.5);
+            margin-left: calc($sizeValue * -0.5);
+            & > * {
+                padding-right: calc($sizeValue * 0.5);
+                padding-left: calc($sizeValue * 0.5);
+            }
+        }
+    }
+
+    @each $sizeName, $sizeValue in $sizes {
+        &-gap-y-#{$sizeName} {
+            margin-top: calc($sizeValue * -1);
+            & > * {
+                margin-top: $sizeValue;
+            }
+        }
+    }
+    
+    @include apply-styles('direction', 'flex-direction', $flex-direction);
+    @include apply-styles('justify', 'justify-content', $justify-content);
+    @include apply-styles('align', 'align-items', $align-items);
+    @include apply-styles('wrap', 'flex-wrap', $flex-wrap);
+}

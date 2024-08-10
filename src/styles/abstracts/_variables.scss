@@ -1,0 +1,26 @@
+// $space-base: 16px;
+
+// $space-none: 0;
+// $space-xs: $space-x-base * 0.25;
+// $space-sm: $space-x-base * 0.5;
+// $space-md: $space-x-base;
+// $space-lg: $space-x-base * 1.5;
+// $space-xl: $space-x-base * 3;
+
+$breakpoints: (
+    xs: 480px,
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1536px,
+);
+
+$sizes: (
+    none: 0,
+    xs: 0.6rem,
+    sm: 0.9rem,
+    md: 1rem,
+    lg: 1.1rem,
+    xl: 1.3rem,
+)

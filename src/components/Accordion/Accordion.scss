@@ -1,0 +1,31 @@
+@import '@/styles/abstracts';
+
+.accordion {
+    &-item {
+        border-bottom: 1px solid $muted;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    &-item-active {
+        .accordion-body {
+            grid-template-rows: 1fr;
+        }
+    }
+    &-header {
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    &-header-text {
+        font-weight: 500;
+    }
+    &-content {
+        overflow: hidden;
+    }
+    &-body {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: 300ms;
+        overflow: hidden;
+    }
+}
